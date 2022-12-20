@@ -25,6 +25,7 @@ export const Main = styled.main`
         margin-top: 4rem;
         display: flex;
         justify-content: flex-start;
+        gap: .8rem;
     }
 
     overflow-y: scroll;

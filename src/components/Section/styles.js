@@ -23,6 +23,8 @@ export const Container = styled.section`
     > p {
         margin: 1.5rem 0;
         max-height: 85px;
+        
+        overflow: hidden;
     }
 
     > #rating, #tags {
