@@ -45,7 +45,12 @@ export const Form = styled.form`
         margin: 2rem auto 4.2rem;
     }
 
-    > a {
+    > Button:nth-of-type(2) {
+        background-color: transparent;
+        border: none;
+
+        font-size: 1.6rem;
+
         color: ${({ theme }) => theme.COLORS.PINK};
         display: flex;
         gap: .8rem;
