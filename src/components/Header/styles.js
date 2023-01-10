@@ -47,7 +47,7 @@ export const Profile = styled.section`
         width: 13.5rem;
         font-size: 1.4rem;
 
-        > a span {
+        > a {
             width: 13.5rem;
             color: ${({theme}) => theme.COLORS.WHITE};
 
@@ -58,8 +58,9 @@ export const Profile = styled.section`
 
         #LogOut {
             text-decoration: transparent;
+            background-color: transparent;
             border: none;
-            font-weight: 400;
+            font-weight: 500;
             color: ${({theme}) => theme.COLORS.GRAY_200};
         }
     }

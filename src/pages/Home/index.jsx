@@ -8,6 +8,7 @@ import { Section } from '../../components/Section';
 import { AiOutlinePlus } from 'react-icons/ai';
 
 export function Home() {
+    
     return (
         <Container>
             <Header />

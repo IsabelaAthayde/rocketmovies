@@ -68,6 +68,7 @@ export const Form = styled.form`
     width: 34rem;
     height: 33.6rem;
     margin: 6.4rem auto;
+
     > div {
         margin-bottom: .8rem;
     }
