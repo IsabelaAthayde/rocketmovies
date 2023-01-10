@@ -1,14 +1,15 @@
 import { Container } from './styles'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
-export function Rating(){
+export function Rating({children}){
+
     return (
         <Container>
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiFillStar />
-                <AiOutlineStar />    
+            {children}  
+            {children}  
+            {children}  
+            {children}  
+            {children}  
         </Container>
     )
 }

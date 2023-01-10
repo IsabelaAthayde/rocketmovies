@@ -5,6 +5,7 @@ export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
     const [data, setData ] = useState({});
+    const [moviesNotes, setMoviesNotes ] = useState({});
 
     async function signIn({ email, password }) {
         try {
@@ -59,7 +60,34 @@ function AuthProvider({ children }) {
         }
     }
 
+    async function createMovieNote({ movieNote }) {
+        try {
+          const response = await api.post("/movieNotes", movieNote)
+          console.log(response);
+        } catch (error) {
+            if(error.response) {
+                alert(error.response.data.message);
+            } else {
+                alert("Não cadastrar filme.");
+            }
+        }
+    }
+
+    async function showMovieNotes() {
+        await api.get("/movieNotes")
+        .then(notes => JSON.stringify(notes))
+        .then(notes => {
+            localStorage.setItem("@rocketMovies:notes", notes)
+        })
+
+    }
     useEffect(() => {
+        const notes = localStorage.getItem("@rocketMovies:notes");
+        setMoviesNotes(JSON.parse(notes))
+    }, [])
+
+    useEffect(() => {
+
         const token = localStorage.getItem("@rocketMovies:token");
         const user = localStorage.getItem("@rocketMovies:user");
     
@@ -75,7 +103,7 @@ function AuthProvider({ children }) {
     }, []);
     
     return (
-        <AuthContext.Provider value={{ signIn, signOut, updateProfile, user: data.user}}>
+        <AuthContext.Provider value={{ signIn, signOut, updateProfile, createMovieNote, showMovieNotes, user: data.user, notes: moviesNotes.data}}>
             { children }
         </AuthContext.Provider>
     )

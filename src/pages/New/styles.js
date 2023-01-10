@@ -127,6 +127,21 @@ export const Form = styled.form`
 
         border-radius: 5px;
         background-color: ${({theme}) => theme.COLORS.BLACK};
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: none;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: ${({theme}) => theme.COLORS.PINK};
+            border-radius: 9999px;
+        }
     }
 
     > #btns {
