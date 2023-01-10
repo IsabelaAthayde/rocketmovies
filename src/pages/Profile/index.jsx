@@ -27,16 +27,15 @@ export function Profile() {
     const [avatarFile, setAvatarFile] = useState();
 
     async function handleUpdate() {
-        const user = {
+        const updated = {
             name,
             email,
             password: newPassword,
             old_password: oldPassword 
         }
 
-        // const userUpdated = Object.assign(user, updated);
-
-       await updateProfile({ user, avatarFile });
+        const userUpdated = Object.assign(user, updated);
+       await updateProfile({ user: userUpdated, avatarFile });
     }
 
     function handleAvatarChange(event) {
@@ -61,7 +60,7 @@ export function Profile() {
 
                 <label htmlFor="avatar">
                     <FiCamera />
-                    <input type="file" id="avatar" onChange={handleAvatarChange}/>
+                    <input type="file" id="avatar" onClick={handleAvatarChange}/>
                 </label>
 
             </Avatar>

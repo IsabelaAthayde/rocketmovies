@@ -1,5 +1,5 @@
 import { Container, Profile } from "./styles";
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
 
