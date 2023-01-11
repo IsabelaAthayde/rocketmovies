@@ -1,5 +1,5 @@
 import { Container, Profile } from "./styles";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
 
@@ -11,16 +11,22 @@ export function Header(){
 
     const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
+    const navigate = useNavigate();
+
+    function handleGoToProfile() {
+        navigate("/profile")
+    }
+
     return(
         <Container>
             <h1>RocketMovies</h1>
             <input type="text" placeholder="Pesquise pelo título"/>
             <Profile>
                 <div>
-                <Link to="/profile">{user.name}</Link>
+                <span onClick={handleGoToProfile}>{user.name}</span>
                     <button type="button" id="LogOut" onClick={signOut}>Sair</button>
                 </div>
-                <Link to="/profile"><img src={avatarURL} alt="" /></Link>
+                <a onClick={handleGoToProfile}><img src={avatarURL} alt="" /></a>
                 
             </Profile>
         </Container>

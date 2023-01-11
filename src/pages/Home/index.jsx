@@ -1,5 +1,5 @@
 import { Container, NewMovie } from './styles';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
@@ -7,14 +7,19 @@ import { Section } from '../../components/Section';
 
 import { AiOutlinePlus } from 'react-icons/ai';
 
-import { useAuth } from '../../hooks/auth';
-
+import { api } from "../../services/api";
 
 export function Home() {
-    const { showMovieNotes, notes } = useAuth();
+    const [notes, setNotes] = useState([]);
 
-    showMovieNotes()
-    console.log(notes)
+    useEffect(() => {
+        async function fectchNotes() {
+            const response = await api.get("/movieNotes");
+            setNotes(response.data)
+        }
+        fectchNotes()
+    }, [])
+
     return (
         <Container>
             <Header />
@@ -22,7 +27,7 @@ export function Home() {
                 <div>
                     <h1>Meus filmes</h1>
                     <aside>
-                        <NewMovie to="/new">
+                        <NewMovie to="/HandleNote">
                             <AiOutlinePlus/>
                             Adicionar Filme
                         </NewMovie>
@@ -30,13 +35,11 @@ export function Home() {
                 </div>
                 <section id="sections_container">
                     {
-                        notes.map((note) => (
-                            <Section 
-                            title={note.title}
-                            rating={note.rating}
-                            text={note.description}
-                            />
-                        ))
+                    notes.map((note) => (
+                        <Section
+                        key={String(note.id)}
+                        data={note}
+                        />))
                     }
                 </section>
             </main>

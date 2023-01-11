@@ -47,7 +47,7 @@ export const Profile = styled.section`
         width: 13.5rem;
         font-size: 1.4rem;
 
-        > a {
+        > span {
             width: 13.5rem;
             color: ${({theme}) => theme.COLORS.WHITE};
 

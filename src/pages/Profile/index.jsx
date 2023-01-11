@@ -23,18 +23,19 @@ export function Profile() {
 
     const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
-    const [avatar, setAvatar] = useState(user.avatar);
+    const [avatar, setAvatar] = useState(avatarURL);
     const [avatarFile, setAvatarFile] = useState();
 
     async function handleUpdate() {
         const updated = {
             name,
             email,
+            avatar: user.avatar,
             password: newPassword,
             old_password: oldPassword 
         }
 
-        const userUpdated = Object.assign(user, updated);
+       const userUpdated = Object.assign(user, updated);
        await updateProfile({ user: userUpdated, avatarFile });
     }
 
@@ -55,12 +56,12 @@ export function Profile() {
                 </Link>
             </Header>
             <Avatar>
-                <img src={avatarURL}
+                <img src={avatar}
                 alt="Foto do Usuário" />
 
                 <label htmlFor="avatar">
                     <FiCamera />
-                    <input type="file" id="avatar" onClick={handleAvatarChange}/>
+                    <input type="file" id="avatar" onChange={(e) => handleAvatarChange(e)}/>
                 </label>
 
             </Avatar>

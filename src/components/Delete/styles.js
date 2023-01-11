@@ -1,48 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
-
-    overflow: hidden;
-`;
-
-export const Main = styled.main`
-    width: 100%;
-    height: 100vh;
-    max-width: 2000px;
-    max-height: 2000px;
-
-    margin: 0 auto;
-
-    > a {
-        width: 80%;
-        max-width: 1200px;
-
-        margin: 0 auto 4rem;
-
-
-        color: ${({ theme }) => theme.COLORS.PINK};
-        margin-top: 4rem;
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-        width: 12px;
-    }
-    
-    &::-webkit-scrollbar-track {
-        background: none;
-    }
-    
-    &::-webkit-scrollbar-thumb {
-        background: ${({theme}) => theme.COLORS.GRAY_400};
-    }
-`;
-
 export const Create = styled.div`
     width: 80%;
     height: 536px;

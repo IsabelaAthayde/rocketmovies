@@ -1,36 +1,50 @@
 import { Container } from "./styles";
 import { Rating } from "../Rating";
-import { Tags } from "../Tags";
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { Tags } from '../Tags';
 
+import { useState, useEffect } from 'react';
+import { api } from "../../services/api";
 
+export function Section({data, ...rest}) {
+    const [tags, setTags] = useState([]);
 
-export function Section({title, text, rating, tag1, ...rest}) {
-    function rating() {
-        console.log(rating, "foi")
-        for (let i = 1; i < rating; i++) {
-            <AiFillStar />
-        }
-        if(rate == 5) {
-            return;
-        }
-        for (let i = 1; i < rating; i++) {
-            <AiOutlineStar />
-        }
-    }
+    useEffect(() => {
+        // function rating() {
+        //     console.log(rating, "foi")
+        //     for (let i = 1; i < rating; i++) {
+        //         <AiFillStar />
+        //     }
+        //     if(i == 5) {
+        //         return;
+        //     }
+        //     for (let j = 1; j < rating; j++) {
+        //         <AiOutlineStar />
+        //     }
+        // }
+        // rating()
+    }, [])
+    
     return (
-        <Container>
-            <h2>{title}</h2>
+        <Container {...rest}>
+            <h2>{data.title}</h2>
             <Rating id="rating">
-                {rating()}
             </Rating>
             <p>
-                {text}
-            </p>
-            <div id="tags">
-                <Tags tag1={tag1}/>
+                {data.description}
+            </p> 
+            
+            {  data.tags &&
+                <footer id="tags">
+                { data.tags.map(tag => 
+                <Tags 
+                key={tag.name} 
+                title={tag.name}
+                />)}
+                </footer>
+            }
                 
-            </div>
+            
         </Container>
     )
 }

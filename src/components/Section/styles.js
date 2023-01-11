@@ -35,8 +35,8 @@ export const Container = styled.section`
     > #tags {
         gap: .8rem;
         
-        > div {
-            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-        }
+        width: 100%;
+        height: 2.4rem;
+
     }
 `;

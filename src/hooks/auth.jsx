@@ -36,6 +36,7 @@ function AuthProvider({ children }) {
     
     async function updateProfile({ user, avatarFile }) {
         try {
+
            if(avatarFile) {
             const fileUploadForm = new FormData()
             fileUploadForm.append("avatar", avatarFile)
@@ -43,8 +44,7 @@ function AuthProvider({ children }) {
             const response = await api.patch("/users/avatar", fileUploadForm)
             user.avatar = response.data.avatar
            } 
-            
-
+        
             await api.put("/users", user)
             localStorage.setItem("@rocketMovies:user", JSON.stringify(user))
 
@@ -60,27 +60,15 @@ function AuthProvider({ children }) {
         }
     }
 
-    async function createMovieNote({ movieNote }) {
-        try {
-          const response = await api.post("/movieNotes", movieNote)
-          console.log(response);
-        } catch (error) {
-            if(error.response) {
-                alert(error.response.data.message);
-            } else {
-                alert("Não cadastrar filme.");
-            }
-        }
-    }
+    // async function showMovieNotes() {
+    //     await api.get("/movieNotes")
+    //     .then(notes => JSON.stringify(notes))
+    //     .then(notes => {
+    //         localStorage.setItem("@rocketMovies:notes", notes)
+    //     })
 
-    async function showMovieNotes() {
-        await api.get("/movieNotes")
-        .then(notes => JSON.stringify(notes))
-        .then(notes => {
-            localStorage.setItem("@rocketMovies:notes", notes)
-        })
+    // }
 
-    }
     useEffect(() => {
         const notes = localStorage.getItem("@rocketMovies:notes");
         setMoviesNotes(JSON.parse(notes))
@@ -103,7 +91,7 @@ function AuthProvider({ children }) {
     }, []);
     
     return (
-        <AuthContext.Provider value={{ signIn, signOut, updateProfile, createMovieNote, showMovieNotes, user: data.user, notes: moviesNotes.data}}>
+        <AuthContext.Provider value={{ signIn, signOut, updateProfile, user: data.user}}>
             { children }
         </AuthContext.Provider>
     )
