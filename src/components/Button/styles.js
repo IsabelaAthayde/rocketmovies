@@ -12,4 +12,5 @@ export const Container = styled.button`
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
     font-size: 1.6rem;
+
 `;

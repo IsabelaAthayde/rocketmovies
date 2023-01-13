@@ -2,8 +2,6 @@ import {Create, Form} from "./styles";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import { FiArrowLeft } from "react-icons/fi";
-
 import { api } from "../../services/api";
 
 import { Button } from "../Button";
@@ -62,9 +60,9 @@ return (
                 <input 
                 type="number" 
                 id="rating" 
-                min="0" 
+                min="1" 
                 max="5" 
-                placeholder="Sua nota (de 0 a 5)" 
+                placeholder="Sua nota (de 1 a 5)" 
                 onChange={e => setRating(e.target.value)}
                 />
 
@@ -96,10 +94,8 @@ return (
                 />
             </div>
             
-            <div id="btns">
-                <button title="Excluir Filme" type="button">Excluir Filme</button>
-                <Button title="Salvar Alterações" type="button" onClick={handleNewNote}/>
-            </div>
+            <Button title="Salvar Alterações" type="button" onClick={handleNewNote}/>
+
         </Form>
     </Create>
 )

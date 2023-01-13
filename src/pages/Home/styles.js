@@ -1,19 +1,18 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     width: 100%;
     height: 100%;
 
     > main {
-        max-width: 1137px;
-        width: 80%;
+        max-width: 70vw;
         height: 100%;
-        margin: 0 clamp(8rem, 8rem + 5vw, 12.3rem);
+        margin: 0 auto;
+
 
         > div {
             width: 100%;
-            height: 48px;
+            height: 4.8rem;
             margin: 4.7rem 0 3.7rem;
 
             display: flex;
@@ -21,32 +20,37 @@ export const Container = styled.div`
             justify-content: space-between;
             font-size: 2rem;
             font-weight: 400;
+
+            @media (max-width: 499px) {
+                flex-direction: column;
+                height: fit-content;
+                gap: 2rem;
+            }
+
+            > h1 {
+                width: fit-content;
+                
+                @media (max-width: 720px) {
+                    font-size: 3.5rem;
+                }
+            }
             
             aside {
-                width: 20.7rem;
+                width: fit-content;
                 height: 48px;
             }
         }
 
         > #sections_container {
-            overflow-y: scroll;
 
             max-height: 700px;
             height: 70%;
             width: 100%;
 
             margin-bottom: 6.4rem;
-            padding-right: 1rem;
 
-            > a {
-                h2 {
-                    color: ${({ theme }) => theme.COLORS.WHITE};
-                    
-                }
-                p {
-                    color: ${({ theme }) => theme.COLORS.GRAY_100};
-                }
-            }
+            overflow-y: scroll;
+            
         }
         
         #sections_container::-webkit-scrollbar {
@@ -65,8 +69,7 @@ export const Container = styled.div`
 
 `;
 
-export const NewMovie = styled(Link)`
-    width: 100%;
+export const NewMovie = styled.button`
     height: 48px;
     padding: 1.5rem;
 
@@ -74,11 +77,39 @@ export const NewMovie = styled(Link)`
     align-items: center;
     justify-content: center;
     font-weight: 500;
+    gap: .8rem;
+
+    > span:first-of-type {
+        display: none;
+    }
                 
+    @media (max-width: 720px) {
+        > span:first-of-type {
+            display: block;
+        }
+
+        > span:last-of-type {
+            display: none;
+        }
+    }
+
+    @media (max-width: 499px) {
+        padding: 1rem;
+        > span:first-of-type {
+            display: none;
+        }
+
+        > span:last-of-type {
+            display: block;
+        }
+    }
                 
     svg {
         font-size: 2rem;
-        margin-right: .8rem;
+
+        @media (max-width: 422px) {
+            font-size: 1.6rem;
+        }
     }
 
     border: none;

@@ -5,7 +5,6 @@ export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
     const [data, setData ] = useState({});
-    const [moviesNotes, setMoviesNotes ] = useState({});
 
     async function signIn({ email, password }) {
         try {
@@ -59,20 +58,6 @@ function AuthProvider({ children }) {
             }
         }
     }
-
-    // async function showMovieNotes() {
-    //     await api.get("/movieNotes")
-    //     .then(notes => JSON.stringify(notes))
-    //     .then(notes => {
-    //         localStorage.setItem("@rocketMovies:notes", notes)
-    //     })
-
-    // }
-
-    useEffect(() => {
-        const notes = localStorage.getItem("@rocketMovies:notes");
-        setMoviesNotes(JSON.parse(notes))
-    }, [])
 
     useEffect(() => {
 

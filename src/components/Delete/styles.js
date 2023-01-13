@@ -8,8 +8,6 @@ export const Create = styled.div`
 
     max-width: 1200px;
 
-    overflow: auto;
-
     border-bottom:  2px solid ${({ theme }) => theme.COLORS.GRAY_400};
     box-shadow: inset -25px -104px 74px -113px rgba(25,25,28,1);
 
@@ -33,96 +31,54 @@ export const Create = styled.div`
 
 export const Form = styled.form`
     width: 100%;
-    height: 63.5rem;
+    height: fit-content;
 
-    > textarea, > #input_container input {
-        height: 5.6rem;
-        
-        color: ${({theme}) => theme.COLORS.GRAY_200};
-        background-color: ${({theme}) => theme.COLORS.GRAY_400};
-
-        border-radius: 10px;
-        border: none;
-
-        padding: 0 2rem;
-
-        outline: none;
-    }
-
-    > #input_container {
+    > #sections_container {
+        height: fit-content;
         width: 100%;
-        display: flex;
-        gap: 3rem;
 
-        #title, #rating {
-            flex: 1;
-        }
-    }
-    
-    > #obs {
-        width: 100%;
-        height: 27rem;
-        margin: 4rem 0;
-        resize: none;
-        padding: 2rem;
-        font-size: 1.6rem;
-    }
+        margin: 2rem 0;
 
-    > span {
-        color: ${({theme}) => theme.COLORS.GRAY_200};
-    }
-
-    > #markers {
-        margin-top: 2.4rem;
-        padding: 1.6rem;
         
-        width: 100%;
-        height: 8.8rem;
-        
-        display: flex;
-        gap: 2.4rem;
-
-        border-radius: 5px;
-        background-color: ${({theme}) => theme.COLORS.BLACK};
-        overflow-x: scroll;
-        overflow-y: hidden;
-
-        &::-webkit-scrollbar {
-            height: 4px;
-        }
-        
-        &::-webkit-scrollbar-track {
-            background: none;
-        }
-        
-        &::-webkit-scrollbar-thumb {
-            background: ${({theme}) => theme.COLORS.PINK};
-            border-radius: 9999px;
-        }
-    }
-
-    > #btns {
-        width: 100%;
-        display: flex;
-        gap: 3rem;
-
-        margin-top: 4rem;
-        #btns:first-child, #btns:last-child {
-            flex: 1;
-        }
-
-        button:first-of-type {
-            background-color: ${({theme}) => theme.COLORS.BLACK};
-            color: ${({theme}) => theme.COLORS.PINK};
-
+        > section {
+            height: 5.6rem;
             width: 100%;
-            height: 4.8rem;
-
+            margin: 1rem 0;
+            
+            color: ${({theme}) => theme.COLORS.GRAY_200};
+            background-color: ${({theme}) => theme.COLORS.GRAY_300};
+            
+            border-radius: 10px;
             border: none;
-            border-radius: 8px;
-
-            font-size: 1.6rem;
+            
+            padding: 2rem;
+            
+            > input {
+                margin-right: 1rem;
+            }
         }
+
+    }
+
+    > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+
+        background-color: ${({theme}) => theme.COLORS.BLACK};
+        color: ${({theme}) => theme.COLORS.PINK};
+        
+        width: clamp(25rem, 50%, 70rem);
+        height: 4.8rem;
+        
+        margin: 4rem auto 0;
+        
+        border: none;
+        border-radius: 8px;
+
+        font-size: 1.6rem;
+        font-weight: 500;
     }
 
 `;

@@ -1,35 +1,51 @@
 import { Container, NewMovie } from './styles';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Header } from '../../components/Header';
-import { Button } from '../../components/Button';
 import { Section } from '../../components/Section';
 
-import { AiOutlinePlus } from 'react-icons/ai';
+import { FiX, FiPlus } from 'react-icons/fi';
+import { RxSlash } from 'react-icons/rx';
 
 import { api } from "../../services/api";
 
 export function Home() {
     const [notes, setNotes] = useState([]);
+    const [search, setSearch] = useState("");
+
+    function handleSearch(headerSearch) {
+        setSearch(headerSearch);
+    }
 
     useEffect(() => {
         async function fectchNotes() {
-            const response = await api.get("/movieNotes");
+            const response = await api.get(`/movieNotes?title=${search}`);
             setNotes(response.data)
         }
         fectchNotes()
-    }, [])
+    }, [search])
+
+    const navigate = useNavigate();
+
+    function handleDetails(note) {
+        navigate(`/details/${note.id}`)  
+    }
+
+    function handleNotesPage() {
+        navigate("/HandleNote")
+    }
 
     return (
         <Container>
-            <Header />
+            <Header handleSearch={handleSearch}/>
             <main>
                 <div>
                     <h1>Meus filmes</h1>
                     <aside>
-                        <NewMovie to="/HandleNote">
-                            <AiOutlinePlus/>
-                            Adicionar Filme
+                        <NewMovie onClick={() => handleNotesPage()}>
+                            <span><FiPlus/><RxSlash/><FiX/></span>
+                            <span>Adicionar ou Excluir Filme</span>
                         </NewMovie>
                     </aside>
                 </div>
@@ -39,6 +55,7 @@ export function Home() {
                         <Section
                         key={String(note.id)}
                         data={note}
+                        onClick={() => handleDetails(note)}
                         />))
                     }
                 </section>

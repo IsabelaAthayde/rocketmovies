@@ -10,16 +10,36 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 6.4rem;
+    gap: 2.4rem;
     
+    @media (max-width: 506px) {
+        height: 15rem;
+        padding: 2rem auto;
+
+        display: grid;
+        grid-template-areas: 
+        "logo avatar"
+        "search search";
+        gap: 0;
+    }
+
     > h1 {
         color: ${({theme}) => theme.COLORS.PINK};
+        grid-area: logo;
+
+        @media (max-width: 800px) {
+            font-size: 2.3rem;
+        }
     }
 
     > input {
-        width: 100%;
-        height: 5rem;
+        grid-area: search;
 
+        min-width: 191px;
+        width: 100%;
+        
+        height: 5rem;
+        
         padding: 0 2rem;
         
         font-size: 1.6rem;
@@ -28,7 +48,6 @@ export const Container = styled.header`
         color: ${({theme}) => theme.COLORS.GRAY_200};
         border: none;
         border-radius: 5px;
-
     }
     `;
 
@@ -40,20 +59,44 @@ export const Profile = styled.section`
     
     text-align: right;
     
-    width: 198px;
+    width: 19.8rem;
     
     color: ${({theme}) => theme.COLORS.WHITE};
+
+    @media (max-width: 645px) {
+        height: fit-content;
+
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: unset;
+    }
+    @media (max-width: 506px) {
+        flex-direction:  row;
+        gap: 1rem;
+        width: fit-content;
+        margin-left: 1rem;
+    }
+    
     > div {
-        width: 13.5rem;
+        width: 11rem;
         font-size: 1.4rem;
-
+        @media (max-width: 645px) {
+            width: fit-content;
+        }
+        
         > span {
-            width: 13.5rem;
             color: ${({theme}) => theme.COLORS.WHITE};
-
+            
             font-weight: 500;
             display: block;
+            white-space: nowrap;
+            overflow: hidden;
             margin-bottom: .3rem;
+
+            @media (max-width: 645px) {
+                display: none;
+            }
         }
 
         #LogOut {
@@ -62,16 +105,24 @@ export const Profile = styled.section`
             border: none;
             font-weight: 500;
             color: ${({theme}) => theme.COLORS.GRAY_200};
+            width: fit-content;
+            @media (max-width: 645px) {
+                width: fit-content;
+                text-align: center;
+            }
+
         }
     }
 
     > a {
-
         img {
             width: 6.4rem;
             height: 6.4rem;
     
             border-radius: 50%;
+
+            grid-area: avatar;
+
         }
     }
 `;

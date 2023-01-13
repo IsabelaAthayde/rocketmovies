@@ -101,28 +101,25 @@ export const Form = styled.form`
         }
     }
 
-    > #btns {
-        width: 100%;
+    > button {
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 3rem;
 
-        margin-top: 4rem;
-        #btns:first-child, #btns:last-child {
-            flex: 1;
-        }
+        background-color: ${({theme}) => theme.COLORS.PINK};
+        color: ${({theme}) => theme.COLORS.BLACK};
 
-        button:first-of-type {
-            background-color: ${({theme}) => theme.COLORS.BLACK};
-            color: ${({theme}) => theme.COLORS.PINK};
+        width: clamp(25rem, 50%, 70rem);
+        height: 4.8rem;
+        
+        margin: 4rem auto 0;
 
-            width: 100%;
-            height: 4.8rem;
+        border: none;
+        border-radius: 8px;
 
-            border: none;
-            border-radius: 8px;
-
-            font-size: 1.6rem;
-        }
+        font-size: 1.6rem;
+        font-weight: 500;
     }
 
 `;

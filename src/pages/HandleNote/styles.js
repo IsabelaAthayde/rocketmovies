@@ -26,25 +26,37 @@ export const Main = styled.main`
     }
     > #return {
         border: none;
-        
-        font-size: 1.6rem;
+        background-color: transparent;
+
+        font-size: 1.8rem;
         margin-top: 4rem;
         display: flex;
         justify-content: flex-start;
         color: ${({ theme }) => theme.COLORS.PINK};
-        background-color: transparent;
+        
     }
 
     > section#switch {
+        height: 4rem;
         justify-content: center;
         align-items: center;
-        gap: 5rem;
-        > button {
-            color: ${({ theme }) => theme.COLORS.PINK};
+        gap: 8rem;
+
+        > Button {
             background-color: transparent;
-            border: none;
+            color: ${({ theme }) => theme.COLORS.PINK};
+
+            border-bottom: dashed 2px ${({ theme }) => theme.COLORS.PINK};
+
+            width: 18rem;
+            height: 100%;
 
             font-size: 1.6rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
 
         }
     }
@@ -63,5 +75,3 @@ export const Main = styled.main`
         background: ${({theme}) => theme.COLORS.GRAY_400};
     }
 `;
-
-

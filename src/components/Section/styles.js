@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.section`
     width: 100%;
+
     height: fit-content;
     padding: 3.2rem;
     margin-bottom: 2.4rem;
 
     border-radius: 10px;
     background-color: ${({ theme }) => theme.COLORS.TRANSPARENT_PINK};
+    
+    cursor: pointer;
 
     > h2 {
         margin-bottom: .8rem;

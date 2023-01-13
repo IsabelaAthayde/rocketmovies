@@ -1,19 +1,39 @@
-import { Container, Main} from "./styles";
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { FiArrowLeft } from "react-icons/fi";
+import { FiX, FiPlus } from 'react-icons/fi';
 
-import { api } from "../../services/api";
+import { Container, Main} from "./styles";
 
 import { Header } from "../../components/Header";
 import { New } from "../../components/New";
 import { Delete } from "../../components/Delete";
+import { Button } from "../../components/Button";
+
 
 export function HandleNote() {
-   
+    const [mode, setMode] = useState();
+    
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setMode(<New />)
+    }, [])
+
+    function handleSwitchMode(event) {
+        const addButton = event.target.id == "add"
+
+        if(addButton) {
+            setMode(<New />)
+            console.log(mode)
+            return;
+        } 
+        setMode(<Delete />)
+    }
+
     function handleBack() {
-        navigate(-1);
+        navigate("/");
     }
 
     return (
@@ -25,11 +45,11 @@ export function HandleNote() {
                     Voltar
                 </button>
                 <section id="switch">
-                    <button id="add">Adicionar nota</button>
-                    <button id="del">Excluir nota</button>
+                    <Button id="add" title="Adicionar nota" icon={<FiPlus/>} onClick={handleSwitchMode}/>
+                    <Button id="del" title="Excluir nota" icon={<FiX/>} onClick={handleSwitchMode}/>
                 </section>
                 
-                <New />
+                {mode}
             </Main>
         </Container>
     )

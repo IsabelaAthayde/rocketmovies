@@ -15,13 +15,17 @@ export const Main = styled.main`
 
     margin: 0 auto;
 
-    > a {
+    > button {
         width: 80%;
         max-width: 1200px;
 
         margin: 0 auto 2.4rem;
 
         color: ${({ theme }) => theme.COLORS.PINK};
+        border: none;
+        background-color: transparent;
+        font-size: 1.8rem;
+
         margin-top: 4rem;
         display: flex;
         justify-content: flex-start;
@@ -45,7 +49,7 @@ export const Main = styled.main`
 
 export const Movie = styled.div`
     width: 80%;
-    height: 536px;
+    height: fit-content;
     margin: 0 auto 20rem;
 
     max-width: 1200px;
@@ -56,7 +60,7 @@ export const Movie = styled.div`
         display: flex;
         gap: .8rem;
 
-        margin: 4rem 0;
+        margin: 2.6rem 0;
         
         > div {
             background-color: ${({ theme }) => theme.COLORS.TRANSPARENT_PINK};
