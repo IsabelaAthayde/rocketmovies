@@ -16,6 +16,21 @@ export const Container = styled.div`
     border-radius: 10px;
     outline: none;
 
+        animation: addTag 0.8s ease-out 0s 1 normal forwards;
+        transition: all 0.8s;
+        @keyframes addTag {
+        0% {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        }
+
+
     > button {
         border: none;
         background-color: transparent;

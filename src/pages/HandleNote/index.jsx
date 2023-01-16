@@ -14,6 +14,7 @@ import { Button } from "../../components/Button";
 
 export function HandleNote() {
     const [mode, setMode] = useState();
+    const [style, setStyle] = useState("");
     
     const navigate = useNavigate();
 

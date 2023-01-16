@@ -15,6 +15,12 @@ export function SignIn() {
     
     const { signIn } = useAuth()
 
+    function checkEnter(e) {
+        if(e && e.keyCode === 13) {
+            signIn({ email, password });
+        }
+    }
+
     function handleSignIn() {
         signIn({ email, password });
     }
@@ -29,14 +35,16 @@ export function SignIn() {
                     <Input 
                     type="email" 
                     placeholder="E-mail" 
-                    icon={FiMail} 
+                    icon={FiMail}
+                    onKeyDown={(e) => checkEnter(e)}
                     onChange={ (e) => setEmail(e.target.value)}
                     />
 
                     <Input 
                     type="password" 
                     placeholder="Senha" 
-                    icon={FiLock} 
+                    icon={FiLock}
+                    onKeyDown={(e) => checkEnter(e)}
                     onChange={ (e) => setPassword(e.target.value)}
                     />
 

@@ -6,6 +6,8 @@ export const Container = styled.header`
     padding: 0 clamp(8rem, 5rem + 5vw, 12.3rem);
 
     border-bottom: 1px solid ${({theme}) => theme.COLORS.BACKGROUND_700};
+    background-color: 1px solid ${({theme}) => theme.COLORS.BACKGROUND_900};
+
 
     display: flex;
     align-items: center;
@@ -122,6 +124,14 @@ export const Profile = styled.section`
             border-radius: 50%;
 
             grid-area: avatar;
+
+            transform: scale(1);
+            transition: all 0.8s ease;
+
+            &:hover {
+            transform: scale(0.78);
+
+            }
 
         }
     }

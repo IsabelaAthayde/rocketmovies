@@ -13,6 +13,13 @@ import { api } from "../../services/api";
 export function Home() {
     const [notes, setNotes] = useState([]);
     const [search, setSearch] = useState("");
+    const [style, setStyle] = useState("");
+
+    function changeStyle() {
+        console.log("you just clicked");
+      
+        setStyle("animation");
+    };
 
     function handleSearch(headerSearch) {
         setSearch(headerSearch);
@@ -39,11 +46,13 @@ export function Home() {
     return (
         <Container>
             <Header handleSearch={handleSearch}/>
-            <main>
+            <main className={style}>
                 <div>
                     <h1>Meus filmes</h1>
                     <aside>
-                        <NewMovie onClick={() => handleNotesPage()}>
+                        <NewMovie onClick={() => {
+                            handleNotesPage()
+                        }}>
                             <span><FiPlus/><RxSlash/><FiX/></span>
                             <span>Adicionar ou Excluir Filme</span>
                         </NewMovie>

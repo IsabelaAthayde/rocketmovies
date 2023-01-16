@@ -9,6 +9,20 @@ export const Container = styled.section`
 
     border-radius: 10px;
     background-color: ${({ theme }) => theme.COLORS.TRANSPARENT_PINK};
+
+    @keyframes movieEntrance {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+    }
+
+    animation: movieEntrance 600ms ease-out 0s 1 normal forwards;
     
     cursor: pointer;
 

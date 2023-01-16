@@ -9,7 +9,6 @@ export const Container = styled.div`
         height: 100%;
         margin: 0 auto;
 
-
         > div {
             width: 100%;
             height: 4.8rem;
@@ -38,6 +37,7 @@ export const Container = styled.div`
             aside {
                 width: fit-content;
                 height: 48px;
+
             }
         }
 
@@ -67,6 +67,22 @@ export const Container = styled.div`
         }
     }
 
+    .animation {
+        
+        @keyframes goToNewPage {
+            0% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            100% {
+                opacity: 0;
+                transform: translateX(-250px);
+            }
+        }
+        animation: goToNewPage 900ms ease 0s 1 normal forwards;
+        
+        }
 `;
 
 export const NewMovie = styled.button`
@@ -79,8 +95,23 @@ export const NewMovie = styled.button`
     font-weight: 500;
     gap: .8rem;
 
+    border: none;
+    border-radius: 8px;
+
+    background-color: ${({ theme }) => theme.COLORS.PINK};
+
+    color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+
+    font-size: 1.6rem;
+
     > span:first-of-type {
         display: none;
+    }
+
+    &:hover {
+        background-color: ${({ theme }) => theme.COLORS.TRANSPARENT_PINK};
+
+        color: ${({ theme }) => theme.COLORS.PINK};
     }
                 
     @media (max-width: 720px) {
@@ -111,14 +142,5 @@ export const NewMovie = styled.button`
             font-size: 1.6rem;
         }
     }
-
-    border: none;
-    border-radius: 8px;
-
-    background-color: ${({ theme }) => theme.COLORS.PINK};
-
-    color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-
-    font-size: 1.6rem;
 `;
 

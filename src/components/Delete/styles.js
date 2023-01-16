@@ -11,6 +11,20 @@ export const Create = styled.div`
     border-bottom:  2px solid ${({ theme }) => theme.COLORS.GRAY_400};
     box-shadow: inset -25px -104px 74px -113px rgba(25,25,28,1);
 
+    animation: showUp 1s ease 0s 1 normal forwards;
+    
+    @keyframes showUp {
+        0% {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     > h1 {
         margin: 0 0 4rem;
     }

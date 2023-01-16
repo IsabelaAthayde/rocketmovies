@@ -5,6 +5,8 @@ export const Container = styled.div`
     height: 100vh;
 
     overflow: hidden;
+
+   
 `;
 
 export const Main = styled.main`
@@ -14,6 +16,9 @@ export const Main = styled.main`
     max-height: 2000px;
 
     margin: 0 auto;
+
+    position: relative;
+    z-index: 0;
 
     > #return, #switch {
         margin: 0 auto 4rem;
@@ -42,7 +47,45 @@ export const Main = styled.main`
         align-items: center;
         gap: 8rem;
 
+        > Button:first-of-type {
+            animation: newEntrance 1s ease 0s 1 normal forwards;
+
+            @keyframes newEntrance {
+            0% {
+                opacity: 0;
+                transform: translateX(-250px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            }
+        }
+
+        > Button:last-of-type {
+            animation: deleteEntrance 1s ease-out 0s 1 normal forwards;
+
+            @keyframes deleteEntrance {
+            0% {
+                opacity: 0;
+                transform: translateX(250px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            }
+        }
+
         > Button {
+
+            &:hover {
+                background-color: ${({ theme }) => theme.COLORS.PINK};
+                color: ${({ theme }) => theme.COLORS.BLACK};
+                box-shadow: -1px 9px 34px 3px rgba(0,0,0,0.75);
+            }
             background-color: transparent;
             color: ${({ theme }) => theme.COLORS.PINK};
 

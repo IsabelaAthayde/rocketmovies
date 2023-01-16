@@ -13,6 +13,20 @@ export const Create = styled.div`
     border-bottom:  2px solid ${({ theme }) => theme.COLORS.GRAY_400};
     box-shadow: inset -25px -104px 74px -113px rgba(25,25,28,1);
 
+    animation: showUp 1s ease 0s 1 normal forwards;
+    
+    @keyframes showUp {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     > h1 {
         margin: 0 0 4rem;
     }
@@ -51,10 +65,20 @@ export const Form = styled.form`
 
     > #input_container {
         width: 100%;
+        height: fit-content;
         display: flex;
         gap: 3rem;
 
+        @media (max-width: 546px) {
+        flex-direction: column;
+        
+
+        }
+
         #title, #rating {
+            @media (max-width: 546px) {
+                flex: auto;
+            }
             flex: 1;
         }
     }

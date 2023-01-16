@@ -3,6 +3,44 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100vw;
     height: 100vh;
+
+    @keyframes goDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-250px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fade {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0.6;
+        }
+
+        100% {
+            opacity: 1.5;
+        }
+    }
+
+    @keyframes goUp {
+        0% {
+            opacity: 0;
+            transform: translateY(250px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 `;
 
 export const Header = styled.header`
@@ -10,7 +48,9 @@ export const Header = styled.header`
     height: 14.4rem;
 
     background-color: ${({theme}) => theme.COLORS.TRANSPARENT_PINK};
-
+    
+    animation: fade 1s ease 0s 1 normal forwards;
+    
     > a {
        display: flex;
        justify-content: flex-start;
@@ -31,6 +71,9 @@ export const Avatar = styled.div`
     margin: -70px auto 32px;
 
     position: relative;
+
+    animation: goDown 1s ease 0s normal forwards;
+
 
     > img {
         width: 186px;
@@ -53,9 +96,19 @@ export const Avatar = styled.div`
         bottom: 7px;
         right: 7px;
 
+        transition: all 0.4s ease;
+
+        &:hover {
+            background-color: ${({theme}) => theme.COLORS.BLACK}; 
+            > svg {
+                color: ${({theme}) => theme.COLORS.PINK};   
+            }
+        }
+
         > svg {
             color: ${({theme}) => theme.COLORS.BACKGROUND_900};
             font-size: 2.2rem;
+
         }
         
         > input {
@@ -68,6 +121,8 @@ export const Form = styled.form`
     width: 34rem;
     height: 33.6rem;
     margin: 6.4rem auto;
+
+    animation: goUp 1s ease 0s normal forwards;
 
     > div {
         margin-bottom: .8rem;
