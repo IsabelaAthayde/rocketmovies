@@ -2,13 +2,11 @@ import styled from "styled-components";
 
 export const Create = styled.div`
     width: 80%;
-    height: 536px;
-    margin: 0 auto 20rem;
+    margin: 5rem auto 7rem;
     padding-right: 1.2rem;
 
     max-width: 1200px;
-
-    overflow: auto;
+    max-height: 2000px;
 
     border-bottom:  2px solid ${({ theme }) => theme.COLORS.GRAY_400};
     box-shadow: inset -25px -104px 74px -113px rgba(25,25,28,1);
@@ -47,7 +45,7 @@ export const Create = styled.div`
 
 export const Form = styled.form`
     width: 100%;
-    height: 63.5rem;
+    height: fit-content;
 
     > textarea, > #input_container input {
         height: 5.6rem;
@@ -134,10 +132,11 @@ export const Form = styled.form`
         background-color: ${({theme}) => theme.COLORS.PINK};
         color: ${({theme}) => theme.COLORS.BLACK};
 
-        width: clamp(25rem, 50%, 70rem);
+        width: 100%;
+        max-width: 70rem;
         height: 4.8rem;
         
-        margin: 4rem auto 0;
+        margin: 6rem auto;
 
         border: none;
         border-radius: 8px;

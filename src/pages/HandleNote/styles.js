@@ -5,20 +5,36 @@ export const Container = styled.div`
     height: 100vh;
 
     overflow: hidden;
-
-   
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
 `;
 
 export const Main = styled.main`
     width: 100%;
-    height: 100vh;
+    height: -webkit-fill-available;
+    
     max-width: 2000px;
     max-height: 2000px;
 
-    margin: 0 auto;
+    margin: 0 auto 10rem;
 
     position: relative;
     z-index: 0;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: ${({theme}) => theme.COLORS.GRAY_400};
+    }
 
     > #return, #switch {
         margin: 0 auto 4rem;
@@ -104,17 +120,5 @@ export const Main = styled.main`
         }
     }
 
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-        width: 12px;
-    }
     
-    &::-webkit-scrollbar-track {
-        background: none;
-    }
-    
-    &::-webkit-scrollbar-thumb {
-        background: ${({theme}) => theme.COLORS.GRAY_400};
-    }
 `;

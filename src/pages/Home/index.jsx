@@ -47,27 +47,29 @@ export function Home() {
         <Container>
             <Header handleSearch={handleSearch}/>
             <main className={style}>
-                <div>
-                    <h1>Meus filmes</h1>
-                    <aside>
-                        <NewMovie onClick={() => {
-                            handleNotesPage()
-                        }}>
-                            <span><FiPlus/><RxSlash/><FiX/></span>
-                            <span>Adicionar ou Excluir Filme</span>
-                        </NewMovie>
-                    </aside>
+                <div id="main-container">
+                    <div id="intro">
+                        <h1>Meus filmes</h1>
+                        <aside>
+                            <NewMovie onClick={() => {
+                                handleNotesPage()
+                            }}>
+                                <span><FiPlus/><RxSlash/><FiX/></span>
+                                <span>Adicionar ou Excluir Filme</span>
+                            </NewMovie>
+                        </aside>
+                    </div>
+                    <section id="sections_container">
+                        {
+                        notes.map((note) => (
+                            <Section
+                            key={String(note.id)}
+                            data={note}
+                            onClick={() => handleDetails(note)}
+                            />))
+                        }
+                    </section>
                 </div>
-                <section id="sections_container">
-                    {
-                    notes.map((note) => (
-                        <Section
-                        key={String(note.id)}
-                        data={note}
-                        onClick={() => handleDetails(note)}
-                        />))
-                    }
-                </section>
             </main>
         </Container>
     )

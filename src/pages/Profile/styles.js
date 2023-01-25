@@ -4,6 +4,19 @@ export const Container = styled.div`
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: ${({theme}) => theme.COLORS.GRAY_400};
+    }
 
     @keyframes goDown {
         0% {
