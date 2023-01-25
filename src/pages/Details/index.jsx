@@ -55,12 +55,15 @@ export function Details() {
                         </Rating>
                     </Title>
                     <Description>
-                        <img src={avatarURL}
-                        alt="Foto do Usuário" />
-
-                        <span>Por {user.name}</span>
-                        <BiTime />
-                        <span>{movieData.updated_at}</span>
+                        <section id="avatarMini">
+                            <img src={avatarURL}
+                            alt="Foto do Usuário" />
+                            <span>Por {user.name}</span>
+                        </section>
+                        <section id="time">
+                            <BiTime />
+                            <span>{movieData.updated_at}</span>
+                        </section>
                     </Description>
                     {  movieData.tags &&
                         <div id="tags">

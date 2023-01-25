@@ -9,25 +9,47 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: 620px auto;
     align-items: center;
+    @media (max-height: 550px) {
+        height: inherit;
+    }
+
+    @media (max-width: 591px) {
+        display: block;
+        
+    }
 `;
 
 export const Login = styled.section`
-    width: 34rem;
-    height: 49rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    margin: 0 clamp(8rem, 8rem + 5vw, 13.4rem);
+    @media (max-height: 550px) {
+        margin: 3rem 0 0;
+        height: inherit;
 
+    }
     > h1 {
+        width: fit-content;
         font-size: 4.8rem;
         font-weight: 700;
         color: ${({ theme }) => theme.COLORS.PINK};
-        margin-bottom: 1.1rem;
+        margin: 0 0 1.1rem;
+        
+        @media (max-width: 591px) {
+            font-size: 10vw;
+        }
     }
     > p {
         color: ${({ theme }) => theme.COLORS.WHITE};
         font-size: 1.4rem;
         font-weight: 400;
-    
+        width: fit-content;
+        @media (max-width: 338px) {
+            font-size: 4vw;
+        }
     }
 `;
 
@@ -35,7 +57,10 @@ export const Login = styled.section`
 
 export const Form = styled.form`
     width: 34rem;
-    height: 28rem;
+    height: fit-content;
+    display: grid;
+    place-items: center;
+   
 
     > h2 {
         margin: 4.8rem 0;
@@ -47,6 +72,9 @@ export const Form = styled.form`
     
     > Button {
         margin: 2rem auto 4.2rem;
+        @media (max-width: 591px) {
+            width: 80%;
+        }
     }
 
     > a {
@@ -55,6 +83,10 @@ export const Form = styled.form`
         gap: .8rem;
         align-items: center;
         justify-content: center;
+
+        @media (max-height: 550px) {
+            margin-bottom: 5rem;
+        }
     }
 `;
 
@@ -64,6 +96,11 @@ export const Img = styled.section`
 
     border: none;
     background-image: url(${image});
+    background-size: cover;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 `;
 
 

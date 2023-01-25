@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 
     @keyframes goDown {
         0% {
@@ -74,10 +75,14 @@ export const Avatar = styled.div`
 
     animation: goDown 1s ease 0s normal forwards;
 
+    @media (max-width: 404px) {
+        width: 150px;
+        height: 150px;
+    }
 
     > img {
-        width: 186px;
-        height: 186px;
+        width: inherit;
+        height: inherit;
 
         border-radius: 50%;
     }
@@ -135,6 +140,10 @@ export const Form = styled.form`
 
     > Button {
         margin: 2rem auto 4.2rem;
+        @media (max-width: 404px) {
+            width: 80%;
+            display: block;
+        }
     }
 `;
 

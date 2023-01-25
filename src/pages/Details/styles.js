@@ -48,11 +48,12 @@ export const Main = styled.main`
 `;
 
 export const Movie = styled.div`
-    width: 80%;
-    height: fit-content;
-    margin: 0 auto 20rem;
-
+    width: 100%;
     max-width: 1200px;
+    height: fit-content;
+
+    margin: 0px auto 20rem;
+    padding: 3rem;
 
     overflow: auto;
 
@@ -61,6 +62,8 @@ export const Movie = styled.div`
         gap: .8rem;
 
         margin: 2.6rem 0;
+
+        flex-wrap: wrap;
         
         > div {
             background-color: ${({ theme }) => theme.COLORS.TRANSPARENT_PINK};
@@ -68,7 +71,8 @@ export const Movie = styled.div`
     }
 
     &::-webkit-scrollbar {
-        width: 7px;
+        width: 6px;
+        height: 5px;
     }
     
     &::-webkit-scrollbar-track {
@@ -90,8 +94,18 @@ export const Title = styled.div`
     gap: 1.9rem;
     align-items: center;
 
+    @media (max-width: 583px) {
+        display: block;
+    }
+
     > h1 {
         font-size: 3.6rem;
+
+        @media (max-width: 583px) {
+            font-size: 2.7rem;
+            font-size: 7vw;
+            white-space: nowrap;
+        }
     }
 
     > div {
@@ -119,16 +133,30 @@ export const Description = styled.div`
 
     color: ${({ theme }) => theme.COLORS.WHITE};
 
-
-    > img {
-        width: 1.9rem;
-        height: 1.9rem; 
-        border-radius: 50%;
+    @media (max-width: 455px) {
+        display: block;
     }
 
-    > svg {
-        color: ${({ theme }) => theme.COLORS.PINK};
+    > section#avatarMini, section#time {
+        width: fit-content;
+        height: 100%;
+        display: flex;
+        gap: .8rem;
+        align-items: center;
+
+
+        > img {
+            width: 1.9rem;
+            height: 1.9rem; 
+            border-radius: 50%;
+        }
+
+        > svg {
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
     }
+
+    
 `;
 
 export const Synopsis = styled.div`

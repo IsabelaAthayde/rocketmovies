@@ -10,26 +10,35 @@ export const Container = styled.section`
     border-radius: 10px;
     background-color: ${({ theme }) => theme.COLORS.TRANSPARENT_PINK};
 
-    @keyframes movieEntrance {
-	0% {
-		opacity: 0;
-		transform: translateY(-250px);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-    }
-
     animation: movieEntrance 600ms ease-out 0s 1 normal forwards;
     
     cursor: pointer;
+
+    @keyframes movieEntrance {
+        0% {
+            opacity: 0;
+            transform: translateY(-250px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 346px) {
+        padding: 2rem;
+    }
+
 
     > h2 {
         margin-bottom: .8rem;
         font-weight: 700;
         letter-spacing: 1px;
+
+        @media (max-width: 346px) {
+            font-size: 5.5vw;
+        }
     }
 
     > svg {
@@ -53,7 +62,7 @@ export const Container = styled.section`
         gap: .8rem;
         
         width: 100%;
-        height: 2.4rem;
-
+        height: fit-content;
+        overflow: hidden;
     }
 `;

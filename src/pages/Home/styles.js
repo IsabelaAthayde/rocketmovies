@@ -55,6 +55,7 @@ export const Container = styled.div`
         
         #sections_container::-webkit-scrollbar {
             width: 7px;
+            height: 5px;
         }
         
         #sections_container::-webkit-scrollbar-track {
