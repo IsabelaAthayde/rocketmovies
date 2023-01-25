@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import image from '../../assets/bgImg.png';
+
 export const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -61,7 +63,7 @@ export const Img = styled.section`
     height: 100%;
 
     border: none;
-    background-image: url('src/assets/bgImg.png');
+    background-image: url(${image});
 `;
 
 
