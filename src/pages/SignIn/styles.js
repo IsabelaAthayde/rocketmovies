@@ -39,6 +39,8 @@ export const Login = styled.section`
         margin: 0 0 1.1rem;
         
         @media (max-width: 591px) {
+            font-size: 3.8rem;
+
             font-size: 10vw;
         }
     }
