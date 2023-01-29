@@ -55,6 +55,7 @@ return (
                 id="title" 
                 placeholder="Título" 
                 onChange={e => setTitle(e.target.value)}
+                required
                 />
 
                 <input 
@@ -64,6 +65,7 @@ return (
                 max="5" 
                 placeholder="Sua nota (de 1 a 5)" 
                 onChange={e => setRating(e.target.value)}
+                required
                 />
 
             </div>
