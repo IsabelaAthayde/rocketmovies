@@ -30,6 +30,10 @@ export function New() {
             return alert("Por favor digite um título");
         }
 
+        if(!rating) {
+            return alert("Por favor avalie o filme")
+        }
+
         if(newTags) {
             return alert("Vôce deixou uma tag no campo de adicionar, clique no botão de adicionar ou deixe a em branco para continuar.")
         }
