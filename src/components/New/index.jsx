@@ -30,8 +30,8 @@ export function New() {
             return alert("Por favor digite um título");
         }
 
-        if(!rating) {
-            return alert("Por favor avalie o filme")
+        if(rating === "" || rating === 0 ) {
+            return alert("Por favor avalie o filme de 1 a 5 estrelas");
         }
 
         if(newTags) {

@@ -11,7 +11,7 @@ export function Section({data, ...rest}) {
             <h2>{data.title}</h2>
 
             <Rating key={data.rating}>
-                {data.rating ? showMovieRate(data.rating) : "" } 
+                {showMovieRate(data.rating)}  
             </Rating>
 
             <p>

@@ -55,4 +55,15 @@ export function showMovieRate(movieRating) {
         ]
         return rate;
     }
+    
+    if(movieRating === "" || movieRating === 0 ) {
+        const rate = [
+            <AiOutlineStar key="1"/>,
+            <AiOutlineStar key="2"/>,
+            <AiOutlineStar key="3"/>,
+            <AiOutlineStar key="4"/>,
+            <AiOutlineStar key="5"/>
+        ]
+        return rate;
+    }
 }
